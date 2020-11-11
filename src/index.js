@@ -4,7 +4,7 @@ import { hello, man } from "./libs/component.js";
 // import $ from "jquery";
 
 document.body.appendChild(hello());
-// document.body.appendChild(man());
+document.body.appendChild(man());
 
 // let count = 0;
 

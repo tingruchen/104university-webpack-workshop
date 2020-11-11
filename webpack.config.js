@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const config = {
     entry: {
@@ -40,6 +41,11 @@ const config = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].css"
+        }),
+        new ImageminPlugin({
+            pngquant: {
+              quality: '95-100'
+            }
         })
     ],
     // devtool: "inline-source-map",
