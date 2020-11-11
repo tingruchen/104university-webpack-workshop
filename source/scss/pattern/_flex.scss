@@ -1,0 +1,26 @@
+.flex {    
+    &-justify {
+        &--center {
+            justify-content: center;
+            justify-items: center;
+        }
+        &--space-between {
+            justify-content: space-between;
+            justify-items: space-between;
+        }
+    }
+
+    &-align {
+        &--center {
+            align-content: center;
+            align-items: center;
+        }
+        &--space-between {
+            align-content: space-between;
+            align-items: space-between;
+        }
+    }
+    &--wrap {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,97 @@
+
+
+@mixin float_grid_column($class,$i: 1, $list: ".col-#{$class}-#{$i}") {
+  @for $i from 1 through $grid_columns {
+    $list: "#{$list}, .col-#{$class}-#{$i}";
+  }
+  #{$list} {
+    float: left;
+  }
+}
+
+.test{
+  >div{
+    background-color:red;
+    // margin-right:20px;
+    +div{
+      margin-left:15px;
+    }
+  }
+}
+@mixin calc_grid_column($index, $class, $type) {
+  @if ($type == width) and ($index != 0) {
+    .col-#{$class}-#{$index} {
+      width: percentage(($index / $grid_columns))
+    }
+  }
+}
+
+@mixin loop_grid_column($columns, $class, $type) {
+  @for $i from 0 through $columns {
+    @include calc_grid_column($i, $class, $type);
+  }
+}
+
+@mixin make_grid($class) {
+  @include float_grid_column($class);
+  @include loop_grid_column($grid_columns, $class, width);
+}
+
+@mixin  make_row($gutter: $grid_width) {
+  margin-left: ($gutter / -2);
+  margin-right: ($gutter / -2);
+  clear: both;
+}
+
+.row {
+  overflow: auto;
+  @include make-row;
+}
+
+.container {
+  padding-left: $grid_width/2;
+  padding-right: $grid_width/2;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+
+@media screen and (max-width: $sm_width) {
+  .container {
+    width: $sm_max_width;
+    font-size: 24px;
+  }
+  @include make_grid(sm);
+}
+
+@media screen and (min-width: $sm_width) {
+  .container {
+    width: $sm_max_width;
+    font-size: 24px;
+  }
+  @include make_grid(sm);
+}
+
+@media screen and (min-width: $md_width) {
+  .container {
+    width: $md_max_width;
+    font-size: 16px;
+  }
+  @include make_grid(md);
+}
+
+@media screen and (min-width: $lg_width) {
+  .container {
+    width: $lg_max_width;
+    font-size: 16px;
+  }
+  @include make_grid(lg);
+}
+
+@media screen and (min-width: $xl_width) {
+  .container {
+    width: $xl_max_width;
+    font-size: 16px;
+  }
+  @include make_grid(xl);
+}

@@ -1,0 +1,81 @@
+
+.menu_icon {
+    width: 24px;
+    margin: 8px 20px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    &:active {
+        background-color: $lighter-gray;
+        border-radius: 50%;
+        border: 8px solid $lighter-gray;
+        width: 40px;
+        margin: 0 12px;
+    }
+}
+
+[class^="choose"]:hover {
+    .choose_icon__dot {
+        background-color: #5a5a5a;
+    }
+}
+
+.choose_box {
+    display: none;
+    box-shadow: 0 2px 20px gray;
+    position: absolute;
+    right: 92px;
+    background-color: white;
+    font-size: 0.95rem;
+    line-height: 1.2rem;
+    &__ul {
+        list-style: none;
+        padding: 8px 0;
+        &__li {
+            position: relative;
+            display: inherit;
+            color: black;
+            padding: 8px 24px;
+            &:hover {
+                background-color: $light-gray;
+
+            }
+            &__ul {
+                display: none;
+                padding: 8px 24px;
+                margin: 0 -24px;
+                list-style: none;
+                background-color: gray;
+                &__li {
+                    position: relative;
+                    padding: 8px 24px;
+                    margin: 0 -24px;
+                    &:hover {
+                        background-color: darkgray;
+                    }
+                }
+            }
+        }
+    }
+    
+    &:hover {
+        display: block;
+    }
+}
+
+
+.chooseBox {
+    display: none;
+    box-shadow: 0 2px 20px gray;
+    position: absolute;
+    right: 92px;
+    background-color: white;
+    font-size: 0.95rem;
+    line-height: 1.2rem;
+    &__items {
+        list-style: none;
+        padding: 8px 0;
+    }
+}

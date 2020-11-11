@@ -1,0 +1,100 @@
+@mixin loopCustom($unit, $startNum, $endNum, $feature){
+    @for $i from $startNum through $endNum{
+        &#{$unit * $i}{
+            #{$feature}: #{$unit * $i}px;
+        }
+    }
+}
+.ml{
+    $unit:2;
+    @include loopCustom($unit, 1, 10, 'margin-left');
+}
+
+.mr{
+    $unit:2;
+    @include loopCustom($unit, 1, 10, 'margin-right');
+}
+
+.mt{
+    $unit:2;
+    @include loopCustom($unit, 1, 10, 'margin-top');
+}
+
+.mb{
+    $unit:2;
+    @include loopCustom($unit, 1, 10, 'margin-bottom');
+}
+
+.lh{
+    $unit:1;
+    @include loopCustom($unit, 16, 50, 'line-height');
+}
+
+.pl{
+    $unit:4;
+    @include loopCustom($unit, 1, 20, 'padding-left');
+}
+
+.pr{
+    $unit:4;
+    @include loopCustom($unit, 1, 20, 'padding-right');
+}
+
+.pt{
+    $unit:4;
+    @include loopCustom($unit, 1, 20, 'padding-top');
+}
+
+.pb{
+    $unit:4;
+    @include loopCustom($unit, 1, 20, 'padding-bottom');
+}
+
+.d{
+    &--block{
+        display: block;
+    }
+    &--inline-block{
+        display: inline-block;
+    }
+    &--flex{
+        display: flex;
+        display: -webkit-flex;
+    }
+    &--inline-flex{
+        display: inline-flex;
+    }
+}
+
+.pos{
+    &--fixed{
+        position: fixed;
+        width: inherit;
+        min-width: inherit;
+        max-width: inherit;
+        z-index: 10001;
+    }
+    &--relative{
+        position: relative;
+    }
+    &--abs{
+        position: absolute;
+    }
+}
+
+.search__input{
+    &:focus{
+        outline:none;
+    }
+}
+.login{
+    cursor: pointer;
+    transition: background-color ease-in-out .4s;
+    &:hover{
+        background-color:rgba(blue, 0.5);
+    }
+
+    &:active{
+        background-color: black;
+    }
+}

@@ -1,0 +1,30 @@
+.text{
+    
+    &--center{
+        text-align: center;
+    }
+    &--left{
+        text-align: left;
+    }
+    &--right{
+        text-align: right;
+    }
+    &--vmiddle{
+        vertical-align: middle;
+    }
+    &--bigger{
+        font-size: 1.6rem;
+    }
+    &--big{
+        font-size: 1.2rem;
+    }
+    &--small{
+        font-size: 0.9rem;
+    }
+    &--smaller{
+        font-size: 0.75rem;
+    }
+    &--gray{
+        color: gray;
+    }
+}

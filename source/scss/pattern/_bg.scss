@@ -1,0 +1,17 @@
+.bg{
+    &--white{
+        background-color: white;
+    }
+    &--lighter-gray{
+        background-color: $lighter-gray;
+    }
+    &--gray{
+        background-color: gray;
+    }
+    &--black{
+        background-color: black;
+    }
+    &--red{
+        background-color: red;
+    }
+}

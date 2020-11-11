@@ -1,0 +1,9 @@
+$hover-color: red;
+
+.hello {
+  background: gray;
+
+  &:hover {
+    color: $hover-color;
+  }
+}

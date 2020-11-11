@@ -1,0 +1,132 @@
+//- extends layout/youtubeBar
+
+//- block title
+//-     | Youtube
+
+html
+    head
+        title
+            block title
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        link(rel='stylesheet', href='../css/main.css')
+        script(type='text/javascript' src='../js/toggle.js')
+
+
+    body.bg--lighter-gray
+        .top-bar.pos--fixed.d--flex.bg--white.shadow-gray.flex-justify--space-between.flex-align--center.pt8.pb8(style="width: 100%; min-width: 540px;")
+            .d--inline-block
+                .menu.d--inline-block.text--vmiddle.pl24.pr24()
+                    .bg--gray.mb4.mt4(style="height: 2px; width: 20px;")
+                    .bg--gray.mb4.mt4(style="height: 2px; width: 20px;")
+                    .bg--gray.mb4.mt4(style="height: 2px; width: 20px;")
+                img.logo.text--vmiddle(src='../img/logo.png' style="width: 60px;")
+            .search-bar.d--inline-block(style="width:33%")
+                input.search__input.pt4.pb4.pl4.pr4(type='input' placeholder='關鍵字' style="width: 75%; border: 1px #d2d2d2 solid; border-radius: 2px;")
+                button.search.pt4.pb4.pl4.pr4(style="border: 1px #d2d2d2 solid; border-radius: 2px;") 搜尋
+            .d--inline-block.pl16.pr16
+                .choose_icon.text--vmiddle.d--inline-flex.flex-justify--space-between.flex-align--center.flex--wrap(onclick="toggle_visibility('choose_box');")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                    .choose_icon__dot.bg--gray.mt2.mb2.ml2.mr2(style="height: 4px; width: 4px;")
+                #choose_box.choose_box.bg--white
+                    ul.text--small(style="list-style: none; padding: 8px 0;")
+                        li.choose_box__item Youtube TV
+                            ul
+                                li.choose_box__item
+                        li.choose_box__item Youtube Program
+                        hr.bg--lighter-gray(style="margin: 8px 0;")
+                        li.choose_box__item Youtube TV
+                        li.choose_box__item Youtube Program
+                button.login.text--vmiddle.bg--red.text--small.pl16.pr16.pt8.pb8(style="color: white;") 登入
+                
+        
+        
+        .container(style="position: relative; top: 52px;")
+            section.row.hot-videos.pt20.pb20
+                .section-title.pb20 發燒影片
+                - var hot_video_info = [{src:"../img/video01.jpg", title:"全台必看五個優質台灣英文頻道 #1", comp:"安雅英文1", times:"51萬", before:"21小時"}, {src:"../img/video01.jpg", title:"全台必看五個優質台灣英文頻道 #2", comp:"安雅英文2", times:"52萬", before:"22小時"}, {src:"../img/video01.jpg", title:"全台必看五個優質台灣英文頻道 #3", comp:"安雅英文3", times:"53萬", before:"23小時"}, {src:"../img/video01.jpg", title:"全台必看五個優質台灣英文頻道 #4", comp:"安雅英文4", times:"54萬", before:"24小時"}, {src:"../img/video01.jpg", title:"全台必看五個優質台灣英文頻道 #5", comp:"安雅英文5", times:"55萬", before:"25小時"}, {src:"../img/video01.jpg", title:"全台必看五個優質台灣英文頻道 #6", comp:"安雅英文6", times:"56萬", before:"26小時"}]
+                each val in hot_video_info
+                    .video.col-sm-6.col-md-3.col-lg-3.col-xl-2
+                        img(src= val.src)
+                        .video-text.mr24
+                            .video-title.text--small.text.mt8= val.title
+                            .video-info.text--gray.text--smaller.mt8
+                                p.video-comp= val.comp
+                                .col-sm-6 lalala
+                                p.video-date 觀看次數：
+                                    span= val.times
+                                    | ．
+                                    span= val.before
+                                    | 前
+            .row
+                hr.col-sm-12.col-md-12.col-lg-12.col-xl-12
+
+            section.row.recommand-channels.pt20.pb20
+                .section-title.d--flex.pb20(style="justify-content:space-between; align-items: center;")
+                    .section-title--left
+                        img.text--vmiddle(src="../img/title_icon01.png" width="32px")
+                        span.text--vmiddle.pl8 台灣啟示錄
+                        span.text--vmiddle.pl8.text--gray.text--smaller 推薦頻道
+                    .section-title--right
+                        button.sub-btn.bg--red.text--small.pl16.pr16.pt8.pb8(style="color: white;") 
+                            | 訂閱（
+                            span 23萬
+                            | )
+                .video.col-sm-6.col-md-4.col-lg-4.col-xl-3
+                    video(controls width="100%")
+                        source(src="../video/video01.mp4" type="video/mp4")
+                .video-text.col-sm-6.col-md-8.col-lg-8.col-xl-9
+                    .pl16
+                        .video-title.text--big.text 全台必看五個優質台灣英文頻道 #1
+                        .video-info.text--gray.text--smaller.mt8
+                            span.video-comp.pr12 安雅英文
+                            span.video-date 觀看次數：
+                                span 50萬
+                                | ．
+                                span 22小時
+                                | 前
+                        .video-detail.text--gray.text--smaller.mt12
+                            | 踢個個天天天家吃資下好看你好了看好看看看？天看屋痾斯人下好了了你好下雌雌雌去看看你了天。踢個個天天天家吃資下好看你好了看好看看看？天了天。
+            
+            .row
+                hr.col-sm-12.col-md-12.col-lg-12.col-xl-12
+
+            section.row.recommand-videos.pt20.pb20
+                .section-title.d--flex.pb20(style="justify-content:space-between; align-items: center;")
+                    .section-title--left
+                        img.text--vmiddle(src="../img/title_icon01.png" width="32px")
+                        span.text--vmiddle.pl8 音樂真好聽
+                        span.text--vmiddle.pl8.text--gray.text--smaller 推薦影片
+                    .section-title--right
+                        button.sub-btn.bg--red.text--small.pl16.pr16.pt8.pb8(style="color: white;") 
+                            | 訂閱（
+                            span 12323萬
+                            | )
+                .video.col-sm-6.col-md-4.col-lg-4.col-xl-3
+                    video(controls width="100%")
+                        source(src="../video/video01.mp4" type="video/mp4")
+                .video-text.col-sm-6.col-md-8.col-lg-8.col-xl-9
+                    .pl16
+                        .video-title.text--big.text 全台必看五個優質台灣英文頻道 #1
+                        .video-info.text--gray.text--smaller.mt8
+                            span.video-comp.pr12 安雅英文
+                            span.video-date 觀看次數：
+                                span 50萬
+                                | ．
+                                span 22小時
+                                | 前
+                        .video-detail.text--gray.text--smaller.mt12
+                            | 踢個個天天天家吃資下好看你好了看好看看看？天看屋痾斯人下好了了你好下雌雌雌去看看你了天。踢個個天天天家吃資下好看你好了看好看看看？天了天。
+
+
+            
+
+
+
+
